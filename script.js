@@ -6,33 +6,40 @@ function calculateNumbers(num1, num2, operator) {
 }
 
 function readNumber(e) {
-    if (num1 === null) num1 = Number(e.target.getAttribute('data-number'));
-    else num2 = Number(e.target.getAttribute('data-number'));
+    let num = e.target.getAttribute('data-number');
+    if (operator === '') num1 = num1 + num;
+    else num2 = num2 + num;
 }
 
 function computeOperator(e) {
-    if (num2 === null)
+    if (num2 === '')
         operator = e.target.getAttribute('data-operator');
     else {
-        answer = calculateNumbers(num1, num2, operator);
+        answer = calculateNumbers(Number(num1), Number(num2), operator);
         console.log(answer);
         num1 = answer;
-        num2 = null;
+        num2 = '';
         operator = e.target.getAttribute('data-operator');
     }
 }
 
 function operateNumbers() {
-    answer = calculateNumbers(num1, num2, operator);
+    answer = calculateNumbers(Number(num1), Number(num2), operator);
     console.log(answer);
-    num1 = null;
-    num2 = null;
+    num1 = '';
+    num2 = '';
+    operator = '';
 }
 
-const digitButtons = document.querySelectorAll('.digits button');
-digitButtons.forEach(digitButton => digitButton.addEventListener('click', readNumber));
-const operatorButtons = document.querySelectorAll('.operators button');
-operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', computeOperator));
-const calculateButton = document.querySelector('#calculate');
-calculateButton.addEventListener('click', operateNumbers)
-let num1 = null, num2 = null, operator = null, answer = null;
+function runCalculator() {
+    const digitButtons = document.querySelectorAll('.digits button');
+    digitButtons.forEach(digitButton => digitButton.addEventListener('click', readNumber));
+    const operatorButtons = document.querySelectorAll('.operators button');
+    operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', computeOperator));
+    const calculateButton = document.querySelector('#calculate');
+    calculateButton.addEventListener('click', operateNumbers);
+}
+
+let num1 = '', num2 = '', operator = '', answer = '';
+const inputText = document.querySelector('.display .input');
+runCalculator();
