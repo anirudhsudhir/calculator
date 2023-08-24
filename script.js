@@ -44,6 +44,24 @@ function operateNumbers() {
     operatorCount = 0;
 }
 
+function backspaceOperation() {
+    if (num1 === '') return 0;
+    if (operator === '') {
+        num1 = num1.substring(0, num1.length - 1);
+        updateDisplay();
+    }
+    if (operator !== '') {
+        if (num2 === '') {
+            operator = '';
+            updateDisplay();
+        }
+        else {
+            num2 = num2.substring(0, num2.length - 1);
+            updateDisplay();
+        }
+    }
+}
+
 function updateDisplay() {
     if (num1 === '') {
         inputText.textContent = '0';
@@ -70,6 +88,8 @@ function runCalculator() {
     operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', computeOperator));
     const calculateButton = document.querySelector('#calculate');
     calculateButton.addEventListener('click', operateNumbers);
+    const backspaceButton = document.querySelector('#backspace');
+    backspaceButton.addEventListener('click', backspaceOperation);
 }
 
 let num1 = '', num2 = '', operator = '', answer = '';
