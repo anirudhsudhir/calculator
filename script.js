@@ -71,6 +71,16 @@ function backspaceOperation() {
     }
 }
 
+function clearScreen() {
+    answer = "";
+    num1 = "";
+    num2 = "";
+    operator = "";
+    operatorCount = 0;
+    equalsCalculation = 0;
+    updateDisplay();
+}
+
 function updateDisplay() {
     if (num1 === "") {
         inputText.textContent = "0";
@@ -100,6 +110,8 @@ function runCalculator() {
     calculateButton.addEventListener("click", operateNumbers);
     const backspaceButton = document.querySelector("#backspace");
     backspaceButton.addEventListener("click", backspaceOperation);
+    const clearButton = document.querySelector('#clear');
+    clearButton.addEventListener('click', clearScreen);
 }
 
 let num1 = "",
