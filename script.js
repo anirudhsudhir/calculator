@@ -1,61 +1,58 @@
 function calculateNumbers(num1, num2, operator) {
-    if (operator === '+') return num1 + num2;
-    else if (operator === '-') return num1 - num2;
-    else if (operator === '*') return num1 * num2;
-    else if (operator === '/') return num1 / num2;
+    if (operator === "+") return num1 + num2;
+    else if (operator === "-") return num1 - num2;
+    else if (operator === "*") return num1 * num2;
+    else if (operator === "/") return num1 / num2;
 }
 
 function readNumber(e) {
-    let num = e.target.getAttribute('data-number');
-    if (operator === '') {
+    let num = e.target.getAttribute("data-number");
+    if (operator === "") {
         num1 = num1 + num;
         updateDisplay();
-    }
-    else {
+    } else {
         num2 = num2 + num;
         updateDisplay();
     }
 }
 
 function computeOperator(e) {
-    if (num2 === '') {
-        operator = e.target.getAttribute('data-operator');
+    if (num2 === "") {
+        operator = e.target.getAttribute("data-operator");
         updateDisplay();
-    }
-    else {
+    } else {
         answer = calculateNumbers(Number(num1), Number(num2), operator);
         num1 = answer;
-        num2 = '';
-        operator = e.target.getAttribute('data-operator');
+        num2 = "";
+        operator = e.target.getAttribute("data-operator");
         operatorCount = 0;
-        repeatCalculation = 1;
+        equalsCalculation = 0;
         updateDisplay();
     }
 }
 
 function operateNumbers() {
     answer = calculateNumbers(Number(num1), Number(num2), operator);
-    repeatCalculation = 0;
+    equalsCalculation = 1;
     updateDisplay();
-    answer = '';
-    num1 = '';
-    num2 = '';
-    operator = '';
+    answer = "";
+    num1 = "";
+    num2 = "";
+    operator = "";
     operatorCount = 0;
 }
 
 function backspaceOperation() {
-    if (num1 === '') return 0;
-    if (operator === '') {
+    if (num1 === "");
+    if (operator === "") {
         num1 = num1.substring(0, num1.length - 1);
         updateDisplay();
     }
-    if (operator !== '') {
-        if (num2 === '') {
-            operator = '';
+    if (operator !== "") {
+        if (num2 === "") {
+            operator = "";
             updateDisplay();
-        }
-        else {
+        } else {
             num2 = num2.substring(0, num2.length - 1);
             updateDisplay();
         }
@@ -63,37 +60,42 @@ function backspaceOperation() {
 }
 
 function updateDisplay() {
-    if (num1 === '') {
-        inputText.textContent = '0';
+    if (num1 === "") {
+        inputText.textContent = "0";
         return 0;
-    }
-    else;
-    if (num2 === '') inputText.textContent = num1;
+    } else;
+    if (num2 === "") inputText.textContent = num1;
     else inputText.textContent = num1 + operator + num2;
-    if (operator !== '' && operatorCount === 0) {
+    if (operator !== "" && operatorCount === 0) {
         operatorCount++;
         inputText.textContent = inputText.textContent + operator;
-    }
-    else;
-    if (answer !== '' && repeatCalculation === 0) answerText.textContent = answer;
-    else answerText.textContent = '';
-
+    } else;
+    if (answer !== "" && equalsCalculation === 1) answerText.textContent = answer;
+    else answerText.textContent = "";
 }
 
 function runCalculator() {
     updateDisplay();
-    const digitButtons = document.querySelectorAll('.digits button');
-    digitButtons.forEach(digitButton => digitButton.addEventListener('click', readNumber));
-    const operatorButtons = document.querySelectorAll('.operators button');
-    operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', computeOperator));
-    const calculateButton = document.querySelector('#calculate');
-    calculateButton.addEventListener('click', operateNumbers);
-    const backspaceButton = document.querySelector('#backspace');
-    backspaceButton.addEventListener('click', backspaceOperation);
+    const digitButtons = document.querySelectorAll(".digits button");
+    digitButtons.forEach((digitButton) =>
+        digitButton.addEventListener("click", readNumber)
+    );
+    const operatorButtons = document.querySelectorAll(".operators button");
+    operatorButtons.forEach((operatorButton) =>
+        operatorButton.addEventListener("click", computeOperator)
+    );
+    const calculateButton = document.querySelector("#calculate");
+    calculateButton.addEventListener("click", operateNumbers);
+    const backspaceButton = document.querySelector("#backspace");
+    backspaceButton.addEventListener("click", backspaceOperation);
 }
 
-let num1 = '', num2 = '', operator = '', answer = '';
-let operatorCount = 0, repeatCalculation = 0;
-const inputText = document.querySelector('.display .input');
-const answerText = document.querySelector('.display .answer');
+let num1 = "",
+    num2 = "",
+    operator = "",
+    answer = "";
+let operatorCount = 0,
+    equalsCalculation = 1;
+const inputText = document.querySelector(".display .input");
+const answerText = document.querySelector(".display .answer");
 runCalculator();
