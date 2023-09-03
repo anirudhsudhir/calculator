@@ -43,7 +43,7 @@ function operateNumbers() {
 }
 
 function backspaceOperation() {
-    if (num1 === "");
+    if (num1 === "") return 0;
     if (operator === "") {
         num1 = num1.substring(0, num1.length - 1);
         updateDisplay();
@@ -51,9 +51,12 @@ function backspaceOperation() {
     if (operator !== "") {
         if (num2 === "") {
             operator = "";
+            operatorCount = 0;
             updateDisplay();
+
         } else {
             num2 = num2.substring(0, num2.length - 1);
+            if (num2 === '') operatorCount = 0;
             updateDisplay();
         }
     }
