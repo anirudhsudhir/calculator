@@ -26,6 +26,10 @@ function readNumber(e) {
 }
 
 function computeOperator(e) {
+    if (num1 === "") return 0;
+    else;
+    if (operator !== "" && num2 == "") return 0;
+    else;
     if (num2 === "") {
         operator = e.target.getAttribute("data-operator");
         updateDisplay();
