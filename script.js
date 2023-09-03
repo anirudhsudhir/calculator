@@ -1,8 +1,17 @@
 function calculateNumbers(num1, num2, operator) {
-    if (operator === "+") return num1 + num2;
-    else if (operator === "-") return num1 - num2;
-    else if (operator === "*") return num1 * num2;
-    else if (operator === "/") return num1 / num2;
+    let calculatedAnswer = 0;
+    if (operator === "+") calculatedAnswer = num1 + num2;
+    else if (operator === "-") calculatedAnswer = num1 - num2;
+    else if (operator === "*") calculatedAnswer = num1 * num2;
+    else if (operator === "/") calculatedAnswer = num1 / num2;
+    calculatedAnswer = Number(calculatedAnswer.toFixed(2));
+    let stringAnswer = calculatedAnswer.toString();
+    if (stringAnswer.indexOf('.') !== -1) {
+        let answerLength = stringAnswer.length;
+        if (stringAnswer.substring(answerLength - 2) === '00') return calculatedAnswer.toFixed(0);
+        if (stringAnswer.charAt(answerLength - 1) === '0') return calculatedAnswer.toFixed(1);
+    }
+    return calculatedAnswer;
 }
 
 function readNumber(e) {
