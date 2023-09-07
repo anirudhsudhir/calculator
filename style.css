@@ -1,0 +1,59 @@
+body {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  background-color: black;
+  color: white;
+  width: fit-content;
+  font-family: "Quicksand", sans-serif;
+  font-size: 30px;
+  border: 1px white solid;
+  border-radius: 5px;
+  transition-duration: 1ms;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.display {
+  border: 2px white solid;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.inputdigits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  border: 2px white solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#buttonzero{
+  align-self: center;
+}
+
+.digits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

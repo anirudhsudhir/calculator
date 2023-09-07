@@ -5,6 +5,12 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="head">Calculator</div>
@@ -13,18 +19,24 @@
         <div class="input"></div>
         <div class="answer"></div>
       </div>
-      <div class="input">
+      <div class="inputdigits">
         <div class="digits">
-          <button data-number="1">1</button>
-          <button data-number="2">2</button>
-          <button data-number="3">3</button>
-          <button data-number="4">4</button>
-          <button data-number="5">5</button>
-          <button data-number="6">6</button>
-          <button data-number="7">7</button>
-          <button data-number="8">8</button>
-          <button data-number="9">9</button>
-          <button data-number="0">0</button>
+          <div class="set-1">
+            <button data-number="1">1</button>
+            <button data-number="2">2</button>
+            <button data-number="3">3</button>
+          </div>
+          <div class="set-2">
+            <button data-number="4">4</button>
+            <button data-number="5">5</button>
+            <button data-number="6">6</button>
+          </div>
+          <div class="set-3">
+            <button data-number="7">7</button>
+            <button data-number="8">8</button>
+            <button data-number="9">9</button>
+          </div>
+          <button id="buttonzero" data-number="0">0</button>
         </div>
         <div class="operators">
           <button data-operator="+">+</button>
@@ -32,10 +44,14 @@
           <button data-operator="*">*</button>
           <button data-operator="/">/</button>
         </div>
-        <button id="decimalpoint">.</button>
-        <button id="calculate">=</button>
-        <button id="backspace">Backspace</button>
-        <button id="clear">Clear</button>
+        <div class="set-4">
+          <button id="decimalpoint">.</button>
+          <button id="calculate">=</button>
+        </div>
+        <div class="set-5">
+          <button id="backspace">Backspace</button>
+          <button id="clear">Clear</button>
+        </div>
       </div>
     </div>
     <div class="footer"></div>
