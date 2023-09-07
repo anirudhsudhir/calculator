@@ -3,7 +3,13 @@ function calculateNumbers(num1, num2, operator) {
     if (operator === "+") calculatedAnswer = num1 + num2;
     else if (operator === "-") calculatedAnswer = num1 - num2;
     else if (operator === "*") calculatedAnswer = num1 * num2;
-    else if (operator === "/") calculatedAnswer = num1 / num2;
+    else if (operator === "/") {
+        if (num2 === 0) {
+            error = true;
+            return "Invalid Operation";
+        }
+        calculatedAnswer = num1 / num2;
+    }
     calculatedAnswer = Number(calculatedAnswer.toFixed(2));
     let stringAnswer = calculatedAnswer.toString();
     if (stringAnswer.indexOf('.') !== -1) {
@@ -90,10 +96,17 @@ function clearScreen() {
     operator = "";
     operatorCount = 0;
     equalsCalculation = 0;
-    updateDisplay();
+    if (error === false)
+        updateDisplay();
 }
 
 function updateDisplay() {
+    if (error === true) {
+        clearScreen();
+        answerText.textContent = "Invalid Operation!"
+        error = false;
+        return 0;
+    }
     if (num1 === "") {
         inputText.textContent = "0";
         return 0;
@@ -134,6 +147,7 @@ let num1 = "",
     answer = "";
 let operatorCount = 0,
     equalsCalculation = 1;
+let error = false;
 const inputText = document.querySelector(".display .input");
 const answerText = document.querySelector(".display .answer");
 runCalculator();
