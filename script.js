@@ -55,6 +55,14 @@ function operateNumbers() {
     operatorCount = 0;
 }
 
+function decimalPoint() {
+    if (operator !== "")
+        num2 += '.';
+    else
+        num1 += ".";
+    updateDisplay();
+}
+
 function backspaceOperation() {
     if (num1 === "") return 0;
     if (operator === "") {
@@ -110,6 +118,8 @@ function runCalculator() {
     operatorButtons.forEach((operatorButton) =>
         operatorButton.addEventListener("click", computeOperator)
     );
+    const decimalpointButton = document.querySelector('#decimalpoint');
+    decimalpointButton.addEventListener('click', decimalPoint)
     const calculateButton = document.querySelector("#calculate");
     calculateButton.addEventListener("click", operateNumbers);
     const backspaceButton = document.querySelector("#backspace");
