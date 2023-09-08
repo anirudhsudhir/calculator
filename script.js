@@ -79,6 +79,7 @@ function decimalPoint() {
 function backspaceOperation() {
     if (num1 === "") return 0;
     if (operator === "") {
+        num1 = String(num1);
         num1 = num1.substring(0, num1.length - 1);
         if (num1.charAt(num1.length - 1) === '.')
             decimalpointButton.disabled = false;
@@ -91,8 +92,9 @@ function backspaceOperation() {
             updateDisplay();
 
         } else {
+            num2 = String(num2);
             num2 = num2.substring(0, num2.length - 1);
-            if (num1.charAt(num1.length - 1) === '.')
+            if (num2.charAt(num2.length - 1) === '.')
                 decimalpointButton.disabled = false;
             if (num2 === '') operatorCount = 0;
             updateDisplay();
@@ -122,6 +124,7 @@ function updateDisplay() {
     }
     if (num1 === "") {
         inputText.textContent = "0";
+        answerText.textContent = "";
         return 0;
     } else;
     if (num2 === "") inputText.textContent = num1;
