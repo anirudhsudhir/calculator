@@ -136,11 +136,11 @@ function updateDisplay() {
 
 function runCalculator() {
     updateDisplay();
-    const digitButtons = document.querySelectorAll(".digits button");
+    const digitButtons = document.querySelectorAll(".digit-button");
     digitButtons.forEach((digitButton) =>
         digitButton.addEventListener("click", readNumber)
     );
-    const operatorButtons = document.querySelectorAll(".operators button");
+    const operatorButtons = document.querySelectorAll(".operator-button");
     operatorButtons.forEach((operatorButton) =>
         operatorButton.addEventListener("click", computeOperator)
     );

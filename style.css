@@ -10,20 +10,31 @@ body {
   justify-content: space-between;
 }
 
+.head {
+  font-size: 50px;
+}
+
 button {
-  background-color: black;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgb(25, 24, 24);
   color: white;
-  width: fit-content;
+  width: 80px;
+  height: 80px;
   font-family: "Quicksand", sans-serif;
-  font-size: 30px;
-  border: 1px white solid;
-  border-radius: 5px;
-  transition-duration: 1ms;
+  font-size: 40px;
+  border: 2px rgb(25, 24, 24) solid;
+  border-radius: 50%;
+  transition-duration: 10ms;
 }
 
 button:hover {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
+}
+
+.display {
+  text-align: right;
 }
 
 .content {
@@ -32,24 +43,26 @@ button:hover {
   gap: 15px;
 }
 
-.display {
-  border: 2px white solid;
-  border-radius: 10px;
-  padding: 15px;
-}
-
-.inputdigits {
+.inputdata {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: center;
-  border: 2px white solid;
-  border-radius: 10px;
-  padding: 10px;
 }
 
-#buttonzero{
-  align-self: center;
+.operator-button {
+  background-color: orange;
+  border-color: orange;
+}
+
+#calculate {
+  background-color: orange;
+  border-color: orange;
+  transition-duration: 10ms;
+}
+
+#calculate:hover {
+  background-color: black;
+  color: white;
 }
 
 .digits {
